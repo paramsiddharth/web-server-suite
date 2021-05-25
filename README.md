@@ -4,12 +4,7 @@ with respective examples and Dockerfiles
 with implementations from base OS images
 as well as official images from Docker Hub.
 
-## Servers
-<style>
-table {
-	width: 100%;
-}
-</style>
+## Server Technologies
 Click on any server's name to open its implementation:
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Server | Licence | Description | External |
 |:-:|:-:|:-:|-|:-:|
