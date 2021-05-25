@@ -32,7 +32,8 @@ use the following command:
 ```bash
 # Built from Nginx base
 docker run --rm -d -p 8080:80 --name app nginx-app
-
+```
+```bash
 # Built from Ubuntu 20.04 base
 docker run --rm -d -p 8080:80 --name app nginx-app:ubuntu
 ```
@@ -42,7 +43,8 @@ file with the built image, use the following command(s):
 ```bash
 # Built from Nginx base
 docker run --rm -d -p 8080:80 -v /path/to/nginx.conf:/etc/nginx/conf.d/default.conf:ro -v /path/to/static-app:/usr/share/nginx/html:ro --name app nginx-app
-
+```
+```bash
 # Built from Ubuntu 20.04 base
 docker run --rm -d -p 8080:80 -v /path/to/nginx.conf:/etc/nginx/sites-available/default:ro -v /path/to/static-app:/usr/share/nginx/html:ro --name app nginx-app:ubuntu
 ```
