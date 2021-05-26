@@ -9,6 +9,8 @@ first stage, the sample application will be buil.
 A simple React application is served as an example. Building
 that application will also pull `node:15-slim` from Docker Hub.
 
+For the reverse-proxying example, a dynamic Express app is used.
+
 ## Implementations
 ### From the Official Nginx base image
 This uses the official Nginx image as the base image.
@@ -49,7 +51,7 @@ docker run --rm -d -p 8080:80 -v /path/to/nginx.conf:/etc/nginx/conf.d/default.c
 docker run --rm -d -p 8080:80 -v /path/to/nginx.conf:/etc/nginx/sites-available/default:ro -v /path/to/static-app:/usr/share/nginx/html:ro --name app nginx-app:ubuntu
 ```
 
-# Building
+## Building
 You may build your own application's
 image using one of these images as base.
 ```Dockerfile
@@ -74,5 +76,30 @@ COPY static-app /usr/share/nginx/html
 # Expose port
 EXPOSE 80
 ```
+
+## Bonus
+To use Nginx as a reverse-proxy for the sample dynamic app
+running inside another container, use the following:
+```bash
+# Build the sample dynamic app
+docker build -t app-dynamic app-dynamic
+
+# Build the image with configuration for the dynamic app
+docker build -t nginx-app:dynamic -f Dockerfile.dynamic .
+
+# Create a network for the containers
+docker network create app-net
+
+# Start the dynamic app in its own container
+docker run --rm -d --name dynamic-app --hostname app-dynamic --network app-net app-dynamic
+
+# Start the reverse-proxy container
+docker run -d -p 8080:80 --name app --network app-net nginx-app:dynamic
+```
+The dynamic app runs on port 3000 inside its container.
+
+Here, the dynamic app's container is being referenced as `app-dynamic`, the
+hostname we have set while creating the container and inside the reverse-proxy
+configuration file.
 
 # Made with ❤ by [Param](https://www.paramsid.com).

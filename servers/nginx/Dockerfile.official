@@ -1,4 +1,4 @@
-# Sample React app, to be build using Node.js
+# Sample React app, to be built using Node.js
 FROM node:15-slim AS build
 
 # Copying app source code
