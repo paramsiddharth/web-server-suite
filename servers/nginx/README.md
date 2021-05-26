@@ -60,7 +60,7 @@ FROM nginx-app
 
 # Copying configuration and static app
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY static-app /usr/share/nginx/html
+COPY /path/to/static-app /usr/share/nginx/html
 
 # Expose port
 EXPOSE 80
@@ -71,7 +71,7 @@ FROM nginx-app:ubuntu
 
 # Copying configuration and static app
 COPY nginx.conf /etc/nginx/sites-available/default
-COPY static-app /usr/share/nginx/html
+COPY /path/to/static-app /usr/share/nginx/html
 
 # Expose port
 EXPOSE 80
