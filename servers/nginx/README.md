@@ -94,7 +94,7 @@ docker network create app-net
 docker run --rm -d --name dynamic-app --hostname app-dynamic --network app-net app-dynamic
 
 # Start the reverse-proxy container
-docker run -d -p 8080:80 --name app --network app-net nginx-app:dynamic
+docker run --rm -d -p 8080:80 --name app --network app-net nginx-app:dynamic
 ```
 The dynamic app runs on port 3000 inside its container.
 
