@@ -14,16 +14,12 @@ For the reverse-proxying example, a dynamic Express app is used.
 ## Implementations
 ### From the Official Nginx base image
 This uses the official Nginx image as the base image.
-
-Build:
 ```bash
 docker build -t nginx-app static-app
 ```
 
 ### From the Ubuntu 20.04 base image
 This uses Ubuntu 20.04 as the base image.
-
-Build:
 ```bash
 docker build -t nginx-app:ubuntu static-app-ubuntu
 ```
