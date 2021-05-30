@@ -26,7 +26,7 @@ docker build -t nginx-app:ubuntu static-app-ubuntu
 
 ## Execution
 To run the sample app on port 8080 on the host machine,
-use the following command:
+use the following command(s):
 ```bash
 # Built from Nginx base
 docker run --rm -d -p 8080:80 --name app nginx-app
@@ -55,7 +55,7 @@ image using one of these images as base.
 FROM nginx-app
 
 # Copying configuration and static app
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY /path/to/nginx.conf /etc/nginx/conf.d/default.conf
 COPY /path/to/static-app /usr/share/nginx/html
 
 # Expose port
@@ -66,7 +66,7 @@ EXPOSE 80
 FROM nginx-app:ubuntu
 
 # Copying configuration and static app
-COPY nginx.conf /etc/nginx/sites-available/default
+COPY /path/to/nginx.conf /etc/nginx/sites-available/default
 COPY /path/to/static-app /usr/share/nginx/html
 
 # Expose port
