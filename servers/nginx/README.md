@@ -17,7 +17,7 @@ This uses the official Nginx image as the base image.
 
 Build:
 ```bash
-docker build -t nginx-app -f Dockerfile.official .
+docker build -t nginx-app static-app
 ```
 
 ### From the Ubuntu 20.04 base image
@@ -25,7 +25,7 @@ This uses Ubuntu 20.04 as the base image.
 
 Build:
 ```bash
-docker build -t nginx-app:ubuntu .
+docker build -t nginx-app:ubuntu static-app-ubuntu
 ```
 
 ## Execution
@@ -41,7 +41,7 @@ docker run --rm -d -p 8080:80 --name app nginx-app:ubuntu
 ```
 
 To run your own static application and/or use a custom configuration
-file with the built image, use the following command(s):
+file with the built image (on port 8080 in the host machine), use the following command(s):
 ```bash
 # Built from Nginx base
 docker run --rm -d -p 8080:80 -v /path/to/nginx.conf:/etc/nginx/conf.d/default.conf:ro -v /path/to/static-app:/usr/share/nginx/html:ro --name app nginx-app
@@ -82,10 +82,10 @@ To use Nginx as a reverse-proxy for the sample dynamic app
 running inside another container, use the following:
 ```bash
 # Build the sample dynamic app
-docker build -t app-dynamic app-dynamic
+docker build -t app-dynamic dynamic-app-reverse-proxy/app
 
 # Build the image with configuration for the dynamic app
-docker build -t nginx-app:dynamic -f Dockerfile.dynamic .
+docker build -t nginx-app:dynamic dynamic-app-reverse-proxy
 
 # Create a network for the containers
 docker network create app-net

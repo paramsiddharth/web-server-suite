@@ -1,7 +1,7 @@
 # Web Server Suite
 A collection of web server technologies
-with respective examples and Dockerfiles
-with implementations from base OS images
+with respective examples and Dockerfiles,
+containing implementations from base OS images
 as well as official images from Docker Hub.
 
 ## Server Technologies
