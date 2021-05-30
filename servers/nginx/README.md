@@ -1,5 +1,5 @@
 # Nginx
-<p align='center'><img src='https://www.nginx.com/wp-content/uploads/2020/05/NGINX-product-icon.svg' width='80'></p>
+<p align='center'><img src='../../docs/nginx.svg' width='80'></p>
 
 > A web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
 
