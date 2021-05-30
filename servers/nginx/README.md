@@ -4,7 +4,7 @@
 > A web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
 
 Building the image will be a 2 stage process. In the
-first stage, the sample application will be buil.
+first stage, the sample application will be built.
 
 A simple React application is served as an example. Building
 that application will also pull `node:15-slim` from Docker Hub.
